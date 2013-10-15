@@ -24,6 +24,12 @@ import sys
 
 from setuptools import setup, find_packages
 
+import versioneer
+versioneer.versionfile_source = 'flashproxy/_version.py'
+versioneer.versionfile_build = 'flashproxy/_version.py'
+versioneer.tag_prefix = ''
+versioneer.parentdir_prefix = 'flashproxy-common-'
+
 setup(
     name = "flashproxy-common",
     author = "dcf",
@@ -32,9 +38,10 @@ setup(
     license = "BSD",
     keywords = ['tor', 'flashproxy'],
 
-    packages = find_packages(),
+    version=versioneer.get_version(),
+    cmdclass=versioneer.get_cmdclass(),
 
-    version = "1.3",
+    packages = find_packages(),
 
     install_requires = [
         'setuptools',

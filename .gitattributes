@@ -1,1 +1,2 @@
 * -text
+flashproxy/_version.py export-subst

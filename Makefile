@@ -52,6 +52,9 @@ PY2EXE_TMPDIR = py2exe-tmp
 export PY2EXE_TMPDIR
 $(PY2EXE_TMPDIR): setup-client-exe.py
 	$(PYTHON_W32) setup-client-exe.py py2exe -q
+	# work around http://bugs.winehq.org/show_bug.cgi?id=3591
+	test "$(PYTHON_W32:wine=)" = "$(PYTHON_W32)" || wine \
+	  cmd /c "copy %SystemRoot%\system32\python*.dll $(PY2EXE_TMPDIR)\dist"
 
 DISTDIR_W32 = $(DISTDIR)-win32
 # below, we override DST_SCRIPT and DST_MAN1 for windows

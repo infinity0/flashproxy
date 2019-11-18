@@ -13,7 +13,7 @@
     "dependencies": {
         "optimist": "~0.3.7",
         "xmlhttprequest": "~1.6.0",
-        "ws": "~0.4.32"
+        "ws": "~7.2.0"
     },
     "repository": {
         "type": "git",
